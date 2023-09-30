@@ -47,5 +47,5 @@ jobs:
             ${{ runner.os }}-gradle-
       - uses: actions/upload-artifact@v3
         with:
-          name: Package
-          path: build/libs
+          name: Build Outputs
+          path: app/build/outputs
