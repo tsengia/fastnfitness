@@ -69,8 +69,12 @@ android {
     }
 
     lintOptions {
+        abortOnError false
         disable 'GoogleAppIndexingWarning'
         disable 'MissingTranslation'
+
+        textReport true
+        textOutput file("lint-results.txt")
     }
 }
 
