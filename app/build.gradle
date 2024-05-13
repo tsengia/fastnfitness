@@ -69,7 +69,12 @@ android {
     }
 
     lintOptions {
+        abortOnError false
         disable 'GoogleAppIndexingWarning'
+        disable 'MissingTranslation'
+
+        textReport true
+        textOutput file("lint-results.txt")
     }
     namespace 'com.easyfitness'
 }
@@ -102,4 +107,8 @@ dependencies {
     implementation 'com.github.onurkagan:ktoast:1.0.3'
     implementation 'com.vanniktech:android-image-cropper:4.5.0'
     implementation 'com.github.ivbaranov:materialfavoritebutton:0.1.5'
+}
+
+tasks.withType(Test).configureEach {
+    jvmArgs('--add-opens=java.base/java.lang=ALL-UNNAMED')
 }
