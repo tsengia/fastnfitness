@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.easyfitness">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
     <uses-permission android:name="android.permission.ACTION_HEADSET_PLUG" />
+    <uses-permission android:name="com.health.openscale.READ_WRITE_DATA" />
+    <uses-permission android:name="com.health.openscale.light.READ_WRITE_DATA" />
+    <uses-permission android:name="com.health.openscale.pro.READ_WRITE_DATA" />
+
+    <queries>
+        <package android:name="com.health.openscale" />
+    </queries>
 
     <uses-feature
         android:name="android.hardware.camera.any"
@@ -27,7 +34,8 @@
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
-            android:windowSoftInputMode="stateUnchanged">
+            android:windowSoftInputMode="stateUnchanged"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -36,10 +44,12 @@
         </activity>
         <activity
             android:name=".intro.MainIntroActivity"
-            android:theme="@style/Theme.Intro" />
+            android:theme="@style/Theme.Intro"
+            android:exported="false"/>
         <activity
-            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat" />
+            android:name="com.canhub.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"
+            android:exported="true"/>
 
         <meta-data
             android:name="firebase_crash_collection_enabled"
