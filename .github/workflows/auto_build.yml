@@ -23,9 +23,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with: 
+        with:
           fetch-depth: 0
-      - name: JDK 11 Set Up
+      - name: JDK 17 Set Up
         uses: actions/setup-java@v3
         with:
           java-version: '17'
