@@ -108,3 +108,7 @@ dependencies {
     implementation 'com.vanniktech:android-image-cropper:4.5.0'
     implementation 'com.github.ivbaranov:materialfavoritebutton:0.1.5'
 }
+
+tasks.withType(Test).configureEach {
+    jvmArgs('--add-opens=java.base/java.lang=ALL-UNNAMED')
+}
